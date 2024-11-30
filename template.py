@@ -16,6 +16,7 @@ list_of_files=[ f"{project_name}/__init__.py",
 
 
       f"{project_name}/configuration/__init__.py",
+      f"{project_name}/configuration/mongo_db_connection.py",
 
       f"{project_name}/constants/__init__.py",
 
