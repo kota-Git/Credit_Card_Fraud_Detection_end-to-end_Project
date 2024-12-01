@@ -20,11 +20,11 @@ TARGET_COLUMN="default payment next month"
 PREPROCESSING_OBJECT_FILE_NAME="preprocessing.pkl"
 
 
-FILE_NAME:str="default of credit card data.xls"
+FILE_NAME:str="default of credit card data.csv"
 
-TRAIN_FILE_NAME:str="train.xls"
+TRAIN_FILE_NAME:str="train.csv"
 
-TEST_FILE_NAME:str="test.xls"
+TEST_FILE_NAME:str="test.csv"
 
 
 """
