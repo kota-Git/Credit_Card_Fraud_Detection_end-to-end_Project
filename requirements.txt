@@ -28,4 +28,6 @@ mypy
 pylint
 xlsxwriter>=1.3.0
 
+rich
+
 -e .                     

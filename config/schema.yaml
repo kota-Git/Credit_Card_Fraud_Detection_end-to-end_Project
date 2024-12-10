@@ -1,149 +1,193 @@
 columns:
--ID: int
--LIMIT_BAL: int
--SEX: int
--EDUCATION: int
--MARRIAGE: int
--AGE: int
--PAY_0: int
--PAY_2: int
--PAY_3: int
--PAY_4: int 
--PAY_5: int
--PAY_6: int
--BILL_AMT1: int 
--BILL_AMT2: int 
--BILL_AMT3: int
--BILL_AMT4: int 
--BILL_AMT5: int
--BILL_AMT6: int
--PAY_AMT1: int
--PAY_AMT2: int
--PAY_AMT3: int
--PAY_AMT4: int
--PAY_AMT5: int 
--PAY_AMT6: int
--default payment next month: int 
+  ID: int
+  LIMIT_BAL: int
+  SEX: int
+  EDUCATION: int
+  MARRIAGE: int
+  AGE: int
+  PAY_0: int
+  PAY_2: int
+  PAY_3: int
+  PAY_4: int
+  PAY_5: int
+  PAY_6: int
+  BILL_AMT1: int
+  BILL_AMT2: int
+  BILL_AMT3: int
+  BILL_AMT4: int
+  BILL_AMT5: int
+  BILL_AMT6: int
+  PAY_AMT1: int
+  PAY_AMT2: int
+  PAY_AMT3: int
+  PAY_AMT4: int
+  PAY_AMT5: int
+  PAY_AMT6: int
+  default payment next month: int
 
 
-numerical columns:
-- ID
-- LIMIT_BAL
-- SEX
-- EDUCATION
-- MARRIAGE
-- AGE
-- PAY_0
-- PAY_2
-- PAY_3
-- PAY_4
-- PAY_5
-- PAY_6
-- BILL_AMT1
-- BILL_AMT2
-- BILL_AMT3
-- BILL_AMT4
-- BILL_AMT5
-- BILL_AMT6
-- PAY_AMT1
-- PAY_AMT2
-- PAY_AMT3
-- PAY_AMT4
-- PAY_AMT5
-- PAY_AMT6
-- default payment next month
 
-categorical columns:
-None
+dtypes:
+  ID: "int64"
+  LIMIT_BAL: "int64"
+  SEX: int64
+  EDUCATION: "int64"
+  MARRIAGE: "int64"
+  AGE: "int64"
+  PAY_0: "int64"
+  PAY_2: "int64"
+  PAY_3: "int64"
+  PAY_4: "int64"
+  PAY_5: "int64"
+  PAY_6: "int64"
+  BILL_AMT1: "int64"
+  BILL_AMT2: "int64"
+  BILL_AMT3: "int64"
+  BILL_AMT4: "int64"
+  BILL_AMT5: "int64"
+  BILL_AMT6: "int64"
+  PAY_AMT1: "int64"
+  PAY_AMT2: "int64"
+  PAY_AMT3: "int64"
+  PAY_AMT4: "int64"
+  PAY_AMT5: "int64"
+  PAY_AMT6: "int64"
+  default payment next month: "int64"
 
-drop columns:
-- ID
-- SEX
-- AGE
-- BILL_AMT_AUG
-- BILL_AMT_MAY
-- BILL_AMT_JUL
-- BILL_AMT_JUN
+numerical_columns:
+  - ID
+  - LIMIT_BAL
+  - SEX
+  - EDUCATION
+  - MARRIAGE
+  - AGE
+  - PAY_0
+  - PAY_2
+  - PAY_3
+  - PAY_4
+  - PAY_5
+  - PAY_6
+  - BILL_AMT1
+  - BILL_AMT2
+  - BILL_AMT3
+  - BILL_AMT4
+  - BILL_AMT5
+  - BILL_AMT6
+  - PAY_AMT1
+  - PAY_AMT2
+  - PAY_AMT3
+  - PAY_AMT4
+  - PAY_AMT5
+  - PAY_AMT6
+  - default payment next month
 
+categorical_columns: []
+
+drop_columns:
+  - ID
+  - SEX
+  - AGE
+  - BILL_AMT_AUG
+  - BILL_AMT_MAY
+  - BILL_AMT_JUL
+  - BILL_AMT_JUN
+
+  
+num_features:
+  - EDUCATION
+  - MARRIAGE
+  - PAY_SEPT
+  - PAY_AUG
+  - PAY_JUL
+  - PAY_JUN
+  - PAY_MAY
+  - PAY_APR
 
 column_rename:
-- PAY_0: PAY_SEPT
-- PAY_2: PAY_AUG
-- PAY_3: PAY_JUL
-- PAY_4: PAY_JUN
-- PAY_5: PAY_MAY
-- PAY_6: PAY_APR
-- BILL_AMT1: BILL_AMT_SEPT
-- BILL_AMT2: BILL_AMT_AUG
-- BILL_AMT3: BILL_AMT_JUL
-- BILL_AMT4: BILL_AMT_JUN
-- BILL_AMT5: BILL_AMT_MAY
-- BILL_AMT6: BILL_AMT_APR
-- PAY_AMT1: PAY_AMT_SEPT
-- PAY_AMT2: PAY_AMT_AUG
-- PAY_AMT3: PAY_AMT_JUL
-- PAY_AMT4: PAY_AMT_JUN
-- PAY_AMT5: PAY_AMT_MAY
-- PAY_AMT6: PAY_AMT_APR
+  PAY_0: PAY_SEPT
+  PAY_2: PAY_AUG
+  PAY_3: PAY_JUL
+  PAY_4: PAY_JUN
+  PAY_5: PAY_MAY
+  PAY_6: PAY_APR
+  BILL_AMT1: BILL_AMT_SEPT
+  BILL_AMT2: BILL_AMT_AUG
+  BILL_AMT3: BILL_AMT_JUL
+  BILL_AMT4: BILL_AMT_JUN
+  BILL_AMT5: BILL_AMT_MAY
+  BILL_AMT6: BILL_AMT_APR
+  PAY_AMT1: PAY_AMT_SEPT
+  PAY_AMT2: PAY_AMT_AUG
+  PAY_AMT3: PAY_AMT_JUL
+  PAY_AMT4: PAY_AMT_JUN
+  PAY_AMT5: PAY_AMT_MAY
+  PAY_AMT6: PAY_AMT_APR
 
-# for data Transformation
-
-# 1. Handle missing values
-#    - Drop rows with missing values
-#    - Fill missing values with mean, median, mode, or other suitable methods
-
-# 2. Handle duplicate data
-#    - Drop duplicate rows
-#    - Drop duplicate columns
-
-
-# 3. Handle outliers
-#    - Remove outliers using statistical methods (e.g., Z-score, IQR)
-#    - Use visualization techniques (e.g., box plots, scatter plots) to identify and handle outliers
-
-# 4. Data type conversion
-#    - Convert data types to the appropriate format (e.g., string to date, integer to float)
-
-# 5. Feature engineering
-#    - Create new features by combining existing features 
-#      example 1. years to age in months  2. create new column by adding two columns
-
-#    - Encode categorical variables using one-hot encoding, label encoding, or other suitable methods
-      
-# for data transformation
-
-num_features:
-- EDUCATION
-- MARRIAGE
-- PAY_SEPT 
-- PAY_AUG  
-- PAY_JUL
-- PAY_JUN
-- PAY_MAY
-- PAY_APR
-
-# cat_features
-#or_columns:
-#  - has_job_experience
-#  - requires_job_training
-#  - full_time_position
-#  - education_of_employee
-
-#oh_columns:
-#  - continent
-#  - unit_of_wage
-#  - region_of_employment
+column_rename2:
+  PAY_0:
+    name: PAY_SEPT
+    dtype: int64
+  PAY_2:
+    name: PAY_AUG
+    dtype: int64
+  PAY_3:
+    name: PAY_JUL
+    dtype: int64
+  PAY_4:
+    name: PAY_JUN
+    dtype: int64
+  PAY_5:
+    name: PAY_MAY
+    dtype: int64
+  PAY_6:
+    name: PAY_APR
+    dtype: int64
+  BILL_AMT1:
+    name: BILL_AMT_SEPT
+    dtype: int64
+  BILL_AMT2:
+    name: BILL_AMT_AUG
+    dtype: int64
+  BILL_AMT3:
+    name: BILL_AMT_JUL
+    dtype: int64
+  BILL_AMT4:
+    name: BILL_AMT_JUN
+    dtype: int64
+  BILL_AMT5:
+    name: BILL_AMT_MAY
+    dtype: int64
+  BILL_AMT6:
+    name: BILL_AMT_APR
+    dtype: int64
+  PAY_AMT1:
+    name: PAY_AMT_SEPT
+    dtype: int64
+  PAY_AMT2:
+    name: PAY_AMT_AUG
+    dtype: int64
+  PAY_AMT3:
+    name: PAY_AMT_JUL
+    dtype: int64
+  PAY_AMT4:
+    name: PAY_AMT_JUN
+    dtype: int64
+  PAY_AMT5:
+    name: PAY_AMT_MAY
+    dtype: int64
+  PAY_AMT6:
+    name: PAY_AMT_APR
+    dtype: int64
 
 transform_columns:
-- LIMIT_BAL
-- BILL_AMT_SEPT
-- BILL_AMT_APR
-- PAY_AMT_SEPT
-- PAY_AMT_AUG
-- PAY_AMT_JUL
-- PAY_AMT_JUN
-- PAY_AMT_MAY
-- PAY_AMT_APR
+  - LIMIT_BAL
+  - BILL_AMT_SEPT
+  - BILL_AMT_APR
+  - PAY_AMT_SEPT
+  - PAY_AMT_AUG
+  - PAY_AMT_JUL
+  - PAY_AMT_JUN
+  - PAY_AMT_MAY
+  - PAY_AMT_APR
 
-# used standard scaler for numerical features it's range is -1 to 1
-# used power Transformer(yeo-johnson) for skewed numerical features it's remove skewness and bring data closer to normal distribution
+
