@@ -31,3 +31,6 @@ class DataValidationConfig:
     drift_report_file_path: str = os.path.join(data_validation_dir, DATA_VALIDATION_DRIFT_REPORT_DIR,
                                                DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
     
+
+
+
