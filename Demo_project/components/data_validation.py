@@ -189,7 +189,7 @@ class DataValidation:
             else:
                 logging.info("Schemas data match perfectly! with dataframe data types.")
 
-            return False if len(mismatched_columns)>0 or len(missing_columns)>0 or len(extra_columns) else True
+            return False if len(mismatched_columns)>0 or len(missing_columns)>0 or len(extra_columns)>0 else True
                 
                 
         except Exception as e:
