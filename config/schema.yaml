@@ -83,25 +83,10 @@ numerical_columns:
 
 categorical_columns: []
 
-drop_columns:
-  - ID
-  - SEX
-  - AGE
-  - BILL_AMT_AUG
-  - BILL_AMT_MAY
-  - BILL_AMT_JUL
-  - BILL_AMT_JUN
+
 
   
-num_features:
-  - EDUCATION
-  - MARRIAGE
-  - PAY_SEPT
-  - PAY_AUG
-  - PAY_JUL
-  - PAY_JUN
-  - PAY_MAY
-  - PAY_APR
+
 
 column_rename:
   PAY_0: PAY_SEPT
@@ -179,15 +164,71 @@ column_rename2:
     name: PAY_AMT_APR
     dtype: int64
 
+
+# for data transformation
+num_features:
+  - EDUCATION
+  - MARRIAGE
+  - PAY_0
+  - PAY_2
+  - PAY_3
+  - PAY_4
+  - PAY_5
+  - PAY_6
+  #- PAY_SEPT
+  #- PAY_AUG
+  #- PAY_JUL
+  #- PAY_JUN
+  #- PAY_MAY
+  #- PAY_APR
+
+or_columns: []  # columns to be ordinal encoded like ['SEX'/Gender] means Yes or No
+
+
+oh_columns: []  # columns to be one hot encoded like EDUCATION', 'MARRIAGE']
+
 transform_columns:
   - LIMIT_BAL
-  - BILL_AMT_SEPT
-  - BILL_AMT_APR
-  - PAY_AMT_SEPT
-  - PAY_AMT_AUG
-  - PAY_AMT_JUL
-  - PAY_AMT_JUN
-  - PAY_AMT_MAY
-  - PAY_AMT_APR
+  - BILL_AMT1
+  - BILL_AMT6
+  - PAY_AMT1
+  - PAY_AMT2
+  - PAY_AMT3
+  - PAY_AMT4
+  - PAY_AMT5
+  - PAY_AMT6
+  #- BILL_AMT_SEPT
+  #- BILL_AMT_APR
+  #- PAY_AMT_SEPT
+  #- PAY_AMT_AUG
+  #- PAY_AMT_JUL
+  #- PAY_AMT_JUN
+  #- PAY_AMT_MAY
+  #- PAY_AMT_APR
 
+replace_invalid_values_in_columns:
+- PAY_0
+- PAY_2
+- PAY_3
+- PAY_4
+- PAY_5
+- PAY_6
+#- PAY_SEPT
+#- PAY_AUG  
+#- PAY_JUL  
+#- PAY_JUN 
+#- PAY_MAY 
+#- PAY_APR
 
+drop_columns:
+  - ID
+  - SEX
+  - AGE
+  - BILL_AMT2
+  - BILL_AMT3
+  - BILL_AMT4
+  - BILL_AMT5
+  #- BILL_AMT_AUG
+  #- BILL_AMT_MAY
+  #- BILL_AMT_JUL
+  #- BILL_AMT_JUN
