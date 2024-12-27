@@ -42,11 +42,11 @@ class ModelEvaluation:
         try:
             bucket_name = self.model_eval_config.bucket_name
             model_path=self.model_eval_config.s3_model_key_path
-            CreditCardEstimator = CreditCardEstimator(bucket_name=bucket_name,
+            credit_card_estimator = CreditCardEstimator(bucket_name=bucket_name,
                                                model_path=model_path)
 
-            if CreditCardEstimator.is_model_present(model_path=model_path):
-                return CreditCardEstimator
+            if credit_card_estimator.is_model_present(model_path=model_path):
+                return credit_card_estimator
             return None
         except Exception as e:
             raise  Credit_card_Exception(e,sys)
