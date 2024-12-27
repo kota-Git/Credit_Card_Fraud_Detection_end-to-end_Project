@@ -7,6 +7,7 @@ from Demo_project.components.data_validation import DataValidation
 from Demo_project.components.data_transformation import DataTransformation
 from Demo_project.components.model_trainer import ModelTrainer
 from Demo_project.components.model_evaluation import ModelEvaluation
+from Demo_project.components.model_pushier import ModelPusher
 
 
 
@@ -14,13 +15,15 @@ from Demo_project.entity.config_entity import (DataIngestionConfig,
                                                DataValidationConfig,
                                                DataTransformationConfig,
                                                ModelTrainerConfig,
-                                               ModelEvaluationConfig)
+                                               ModelEvaluationConfig,
+                                               ModelPusherConfig)
                                 
 from Demo_project.entity.artifact_entity import (DataIngestionArtifact,
                                                  DataValidationArtifact,
                                                  DataTransformationArtifact,
                                                  ModelTrainerArtifact,
-                                                 ModelEvaluationArtifact)
+                                                 ModelEvaluationArtifact,
+                                                 ModelPusherArtifact)
                                        
 
 
@@ -31,6 +34,7 @@ class TrainPipeline:
         self.data_transformation_config = DataTransformationConfig()
         self.model_trainer_config = ModelTrainerConfig()
         self.model_evaluation_config = ModelEvaluationConfig()
+        self.model_pusher_config = ModelPusherConfig()
 
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
@@ -121,6 +125,22 @@ class TrainPipeline:
             return model_evaluation_artifact
         except Exception as e:
             raise Credit_card_Exception(e, sys)
+        
+
+
+
+    def start_model_pusher(self, model_evaluation_artifact: ModelEvaluationArtifact) -> ModelPusherArtifact:
+        """
+        This method of TrainPipeline class is responsible for starting model pushing
+        """
+        try:
+            model_pusher = ModelPusher(model_evaluation_artifact=model_evaluation_artifact,
+                                       model_pusher_config=self.model_pusher_config
+                                       )
+            model_pusher_artifact = model_pusher.initiate_model_pusher()
+            return model_pusher_artifact
+        except Exception as e:
+            raise Credit_card_Exception(e, sys)
  
 
 
@@ -152,6 +172,14 @@ class TrainPipeline:
             model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
                                                                     model_trainer_artifact=model_trainer_artifact)
             logging.info("Model Evaluation is done")
+
+
+            if not model_evaluation_artifact.is_model_accepted:
+                logging.info(f"Model not accepted.")
+                return None
+            model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
+
+
 
 
         except Exception as e:
