@@ -115,11 +115,11 @@ async def predictRouteClient(request: Request):
                                 PAY_AMT6= form.PAY_AMT6
                                 )
         
-        usvisa_df = CreditCard_data.get_CreditCard_input_data_frame()
+        CreditCard_df = CreditCard_data.get_CreditCard_input_data_frame()
 
         model_predictor = CreditCardClassifier()
 
-        value = model_predictor.predict(dataframe=usvisa_df)[0]
+        value = model_predictor.predict(dataframe=CreditCard_df)[0]
 
         status = None
         if value == 1:
