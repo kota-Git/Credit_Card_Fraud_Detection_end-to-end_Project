@@ -13,80 +13,102 @@ from pandas import DataFrame
 
 class CreditCardData:
     def __init__(self,
-                continent,
-                education_of_employee,
-                has_job_experience,
-                requires_job_training,
-                no_of_employees,
-                region_of_employment,
-                prevailing_wage,
-                unit_of_wage,
-                full_time_position,
-                company_age
+                LIMIT_BAL,
+                EDUCATION,
+                MARRIAGE,
+                PAY_0,
+                PAY_2,
+                PAY_3,
+                PAY_4,
+                PAY_5,
+                PAY_6,
+                BILL_AMT1,
+                BILL_AMT6,
+                PAY_AMT1,
+                PAY_AMT2,
+                PAY_AMT3,
+                PAY_AMT4,
+                PAY_AMT5,
+                PAY_AMT6
                 ):
         """
         creditcard Data constructor
         Input: all features of the trained model for prediction
         """
         try:
-            self.continent = continent
-            self.education_of_employee = education_of_employee
-            self.has_job_experience = has_job_experience
-            self.requires_job_training = requires_job_training
-            self.no_of_employees = no_of_employees
-            self.region_of_employment = region_of_employment
-            self.prevailing_wage = prevailing_wage
-            self.unit_of_wage = unit_of_wage
-            self.full_time_position = full_time_position
-            self.company_age = company_age
+            self.LIMIT_BAL = LIMIT_BAL
+            self.EDUCATION = EDUCATION
+            self.MARRIAGE = MARRIAGE
+            self.PAY_0 = PAY_0
+            self.PAY_2 = PAY_2
+            self.PAY_3 = PAY_3
+            self.PAY_4 = PAY_4
+            self.PAY_5 = PAY_5
+            self.PAY_6 = PAY_6
+            self.BILL_AMT1 = BILL_AMT1
+            self.BILL_AMT6 = BILL_AMT6
+            self.PAY_AMT1 = PAY_AMT1
+            self.PAY_AMT2 = PAY_AMT2
+            self.PAY_AMT3 = PAY_AMT3
+            self.PAY_AMT4 = PAY_AMT4
+            self.PAY_AMT5 = PAY_AMT5
+            self.PAY_AMT6 = PAY_AMT6
 
 
         except Exception as e:
             raise Credit_card_Exception(e, sys) from e
 
-    def get_usvisa_input_data_frame(self)-> DataFrame:
+    def get_CreditCard_input_data_frame(self)-> DataFrame:
         """
-        This function returns a DataFrame from USvisaData class input
+        This function returns a DataFrame from CreditcardData class input
         """
         try:
             
-            usvisa_input_dict = self.get_usvisa_data_as_dict()
-            return DataFrame(usvisa_input_dict)
+            CreditCard_input_dict = self.get_CreditCard_data_as_dict()
+            return DataFrame(CreditCard_input_dict)
         
         except Exception as e:
             raise Credit_card_Exception(e, sys) from e
 
 
-    def get_usvisa_data_as_dict(self):
+    def get_CreditCard_data_as_dict(self):
         """
-        This function returns a dictionary from USvisaData class input 
+        This function returns a dictionary from creditcard Data class input 
         """
-        logging.info("Entered get_usvisa_data_as_dict method as USvisaData class")
+        logging.info("Entered get_creditcard_data_as_dict method as creditcardData class")
 
         try:
             input_data = {
-                "continent": [self.continent],
-                "education_of_employee": [self.education_of_employee],
-                "has_job_experience": [self.has_job_experience],
-                "requires_job_training": [self.requires_job_training],
-                "no_of_employees": [self.no_of_employees],
-                "region_of_employment": [self.region_of_employment],
-                "prevailing_wage": [self.prevailing_wage],
-                "unit_of_wage": [self.unit_of_wage],
-                "full_time_position": [self.full_time_position],
-                "company_age": [self.company_age],
+                "LIMIT_BAL": [self.LIMIT_BAL],
+                "EDUCATION": [self.EDUCATION],
+                "MARRIAGE": [self.MARRIAGE],
+                "PAY_0": [self.PAY_0],
+                "PAY_2": [self.PAY_2],
+                "PAY_3": [self.PAY_3],
+                "PAY_4": [self.PAY_4],
+                "PAY_5": [self.PAY_5],
+                "PAY_6": [self.PAY_6],
+                "BILL_AMT1": [self.BILL_AMT1],
+                "BILL_AMT6": [self.BILL_AMT6],
+                "PAY_AMT1": [self.PAY_AMT1],
+                "PAY_AMT2": [self.PAY_AMT2],
+                "PAY_AMT3": [self.PAY_AMT3],
+                "PAY_AMT4": [self.PAY_AMT4],
+                "PAY_AMT5": [self.PAY_AMT5],
+                "PAY_AMT6": [self.PAY_AMT6],
+                
             }
 
-            logging.info("Created usvisa data dict")
+            logging.info("Created CreditCard data dict")
 
-            logging.info("Exited get_usvisa_data_as_dict method as USvisaData class")
+            logging.info("Exited get_CreditCard_data_as_dict method as CreditCardData class")
 
             return input_data
 
         except Exception as e:
             raise Credit_card_Exception(e, sys) from e
 
-class USvisaClassifier:
+class CreditCardClassifier:
     def __init__(self,prediction_pipeline_config: CreditCardPredictorConfig = CreditCardPredictorConfig(),) -> None:
         """
         :param prediction_pipeline_config: Configuration for prediction the value
@@ -95,15 +117,15 @@ class USvisaClassifier:
             # self.schema_config = read_yaml_file(SCHEMA_FILE_PATH)
             self.prediction_pipeline_config = prediction_pipeline_config
         except Exception as e:
-            raise CreditCardPredictorConfig(e, sys)
+            raise Credit_card_Exception (e, sys)
 
     def predict(self, dataframe) -> str:
         """
-        This is the method of USvisaClassifier
+        This is the method of CreditCardClassifier
         Returns: Prediction in string format
         """
         try:
-            logging.info("Entered predict method of USvisaClassifier class")
+            logging.info("Entered predict method of CreditcardClassifier class")
             model = CreditCardEstimator(
                 bucket_name=self.prediction_pipeline_config.model_bucket_name,
                 model_path=self.prediction_pipeline_config.model_file_path,
