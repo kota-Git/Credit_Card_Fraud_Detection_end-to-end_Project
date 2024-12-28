@@ -123,9 +123,9 @@ async def predictRouteClient(request: Request):
 
         status = None
         if value == 1:
-            status = "CreditCard Defaulter"
+            status = "Defaulter"
         else:
-            status = "CreditCard Non-Defaulter"
+            status = "Non-Defaulter"
 
         return templates.TemplateResponse(
             "CreditCard.html",

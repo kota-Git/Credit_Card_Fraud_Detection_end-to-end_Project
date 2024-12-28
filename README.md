@@ -1,6 +1,6 @@
 # demo_project
 
-# Credit_Card_Fraud_detection
+# Credit_Card_Fraud_Detection
 
 # Git commands
 
