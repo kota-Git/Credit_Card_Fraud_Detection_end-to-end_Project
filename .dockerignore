@@ -1,0 +1,11 @@
+artifict
+venv
+env
+.gitignore
+logs
+template.py
+demo.py
+README.md
+LICENSE
+demo_project.egg-info
+Note_book
