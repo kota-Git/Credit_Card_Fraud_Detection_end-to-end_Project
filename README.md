@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/730337a2-c97e-4cb7-bbc5-3f92c7f725d7)# demo_project
+
 
 # Credit_Card_Fraud_Detection
 
