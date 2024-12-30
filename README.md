@@ -1,4 +1,4 @@
-# demo_project
+![image](https://github.com/user-attachments/assets/730337a2-c97e-4cb7-bbc5-3f92c7f725d7)# demo_project
 
 # Credit_Card_Fraud_Detection
 
@@ -122,3 +122,7 @@ setting>actions>runner>new self hosted runner> choose os> then run command one b
 - AWS_DEFAULT_REGION
 
 - ECR_REPO
+
+
+
+![image](https://github.com/user-attachments/assets/a366fbe8-6b79-424c-9d4d-43a35ba6bb49)
