@@ -123,6 +123,6 @@ setting>actions>runner>new self hosted runner> choose os> then run command one b
 
 - ECR_REPO
 
-
+ anyone can try the deployed application here: http://3.86.71.69:8080/
 
 ![image](https://github.com/user-attachments/assets/a366fbe8-6b79-424c-9d4d-43a35ba6bb49)
